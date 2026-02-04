@@ -56,7 +56,8 @@ The objective of this project is to predict customer churn and identify key driv
 
 ---
 
-## 6. Business Insights
+### 6. Business Insight from Feature Importance
+
 - Older customers are significantly more likely to churn.
 - Customers with fewer products show higher churn risk.
 - Inactive members are strong churn indicators.
