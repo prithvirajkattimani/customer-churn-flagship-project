@@ -46,13 +46,14 @@ The objective of this project is to predict customer churn and identify key driv
 
 ### Best Model
 **Decision Tree Classifier**
+- Selected due to superior churn recall and highest ROC-AUC among tested models.
 - `max_depth = 5`
 - `class_weight = balanced`
 
 ### Performance Highlights
 - ROC-AUC: **~0.84**
 - Churn Recall: **~76%**
-- Strong balance between recall and interpretability
+- Balanced trade-off between churn recall and model interpretability
 
 ---
 
