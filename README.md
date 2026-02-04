@@ -1,112 +1,79 @@
-📊 Customer Churn Prediction – Flagship Project
-1. Problem Statement
+# 📊 Customer Churn Prediction – Flagship Project
 
-Customer churn is a major challenge for subscription-based businesses.
+## 1. Problem Statement
+Customer churn is a major challenge for subscription-based businesses.  
 The objective of this project is to predict customer churn and identify key drivers behind churn to enable proactive retention strategies.
 
-2. Dataset Overview
+---
 
-Source: Customer Churn Dataset (Banking Domain)
+## 2. Dataset Overview
+**Source:** Customer Churn Dataset (Banking Domain)  
+**Records:** 10,000 customers  
+**Target Variable:** `Exited`  
+- 1 → Churn  
+- 0 → Retained  
 
-Records: 10,000 customers
+### Key Features
+- **Demographics:** Age, Gender, Geography  
+- **Account Information:** Balance, CreditScore, NumOfProducts  
+- **Customer Behavior:** IsActiveMember, Tenure  
 
-Target Variable: Exited (1 = Churn, 0 = Retained)
+---
 
-Key features include:
+## 3. Exploratory Data Analysis (EDA)
+### Key Findings
+- Germany shows the highest churn rate among regions.
+- Churn increases significantly with age.
+- Customers with zero balance churn more.
+- Inactive members are strong churn indicators.
+- Customers owning fewer products are more likely to churn.
 
-Demographics (Age, Gender, Geography)
+---
 
-Account information (Balance, CreditScore, NumOfProducts)
+## 4. Feature Engineering
+- Removed identifier columns (`RowNumber`, `CustomerId`, `Surname`)
+- One-hot encoded categorical variables
+- Standardized numerical features
+- Train-test split with stratification
 
-Customer behavior (IsActiveMember, Tenure)
+---
 
-3. Exploratory Data Analysis (EDA)
+## 5. Modeling & Evaluation
+### Models Used
+- Logistic Regression (Baseline)
+- Logistic Regression (Class-weight Balanced)
+- Decision Tree Classifier (Balanced)
 
-Key findings:
+### Best Model
+**Decision Tree Classifier**
+- `max_depth = 5`
+- `class_weight = balanced`
 
-Germany shows the highest churn rate among regions.
+### Performance Highlights
+- ROC-AUC: **~0.84**
+- Churn Recall: **~76%**
+- Strong balance between recall and interpretability
 
-Churn increases significantly with age.
+---
 
-Customers with zero balance and inactive members churn more.
+## 6. Business Insights
+- Older customers are significantly more likely to churn.
+- Customers with fewer products show higher churn risk.
+- Inactive members are strong churn indicators.
+- German customers show higher churn impact compared to other regions.
 
-Customers owning fewer products are more likely to churn.
+These insights can be directly used for targeted customer retention strategies.
 
-EDA helped guide feature engineering and model selection.
+---
 
-4. Feature Engineering
+## 7. Tools & Technologies
+- Python
+- Pandas, NumPy
+- Matplotlib, Seaborn
+- Scikit-learn
+- Jupyter Notebook
 
-Steps performed:
+---
 
-Removed identifier columns (RowNumber, CustomerId, Surname)
-
-One-hot encoded categorical variables (Geography, Gender)
-
-Standardized numerical features
-
-Stratified train-test split to handle class imbalance
-
-5. Models Tried
-Logistic Regression (Baseline)
-
-High overall accuracy
-
-Poor recall for churn class
-
-Logistic Regression (Class-Weighted)
-
-Improved churn recall
-
-Slightly reduced accuracy
-
-Decision Tree (Final Model)
-
-Class weight = balanced
-
-Max depth = 5
-
-Best trade-off between recall and ROC-AUC
-
-6. Final Model Performance (Decision Tree)
-
-Accuracy: ~77%
-
-Churn Recall: ~76%
-
-ROC-AUC: ~0.84
-
-This model is well-suited for customer retention scenarios where identifying churners is more important than raw accuracy.
-
-7. Feature Importance Insights
-
-Top churn drivers:
-
-Age
-
-Number of Products
-
-Active Membership Status
-
-Account Balance
-
-Geography (Germany)
-
-These features provide actionable insights for targeted retention strategies.
-
-8. Business Impact
-
-Enables early identification of high-risk customers
-
-Supports personalized retention campaigns
-
-Helps businesses reduce churn-related revenue loss
-
-9. Tech Stack
-
-Python
-
-Pandas, NumPy
-
-Matplotlib, Seaborn
-
-Scikit-learn
+## 8. Conclusion
+This project demonstrates an end-to-end churn prediction pipeline, combining data analysis, feature engineering, and machine learning to deliver actionable business insights.
